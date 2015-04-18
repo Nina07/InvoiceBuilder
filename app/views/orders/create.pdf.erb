@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<center>
+<h2>Invoice</h2>
+
+<p><% @orders.each do |data| %>
+ 	<strong>Order No:</strong>
+ 	<%= data.order_no %>
+</p>
+
+<p>
+	<strong>Customer Name:</strong>
+	<%= data.customer_name %>
+</p>
+
+<p>
+	<strong><%= "#{@temp}/#{@count}" %></strong>
+</p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= data.order_date %>
+</p>
+
+<p>
+	<strong>Total:</strong>
+	<%= @items.sum(:rate)%>
+</p>
+
+<% end %>
+
+</center>
+</html>

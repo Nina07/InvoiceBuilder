@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+<br><br>
+<center>
+<h2><u>Customer Orders</u></h2>
+<br><br>
+<table>
+<caption>Listing Customer Orders</caption>
+  <thead>
+    <tr>
+      <th>Order no</th>
+      <th>Order date</th>
+      <th>Customer name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |customer_order| %>
+      <tr>
+        <td><%= customer_order.order_no %></td>
+        <td><%= customer_order.order_date %></td>
+        <td><%= customer_order.customer_name %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+<br><br>
+<table>
+<caption>Order Details</caption>
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Rate</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.product_name %></td>
+        <td><%= item.qty %></td>
+        <td><%= item.rate %></td>
+        <td><%= item.received %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<h3><%= "The total amount for current order dated #{@order_date} is #{@sum}" %><br>
+
+<%= "Total Count : #{@count}" %><br>
+
+<%= "Status: #{@temp}/#{@count} " %></h3>
+
+<%= button_to "Print Bill[PDF]", :action => "create", :format => :pdf %><br>
+
+<%= button_to "Print Bill[JPG]", :action => "new", :format => :jpg %>
+
+</center>
+
